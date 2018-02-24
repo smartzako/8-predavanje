@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block vsebina %}
+
+<h1>Pregled objav</h1>
+
+<p><a href="/dodaj-objavo" class="btn btn-success">Dodaj novo objavo</a></p>
+
+{% for objava in objave %}
+
+    <div class="jumbotron">
+        <h2><a href="/preglej-objavo/{{ objava.key.id() }}">{{ objava.naslov }}</a></h2>
+        <p>{{ objava.vsebina }}</p>
+        <small>Avtor: {{ objava.uporabnik_email }}</small>&nbsp;&nbsp;&nbsp;&nbsp;
+        <small>Objavljeno: {{ objava.cas_objave }}</small>
+    </div>
+
+{% endfor %}
+
+{% endblock %}
